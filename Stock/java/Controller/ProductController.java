@@ -1,5 +1,6 @@
 package Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,13 +13,14 @@ public class ProductController<TopicService>{
 	private ProductController productController;
 	private TopicService topicService;
 
-	@Inject
+	@Autowired
     public void TopicService(TopicService topicService) {
         this.topicService = topicService;
     }
 
 	 @RequestMapping(value="/", method=RequestMethod.GET)
-	    public String index(ProductController model) {
+	    public void String (ProductController model)
+	 {
 	        model.addAttribute("SKU", TopicService.getSKU());
 	        model.addAttribute("productName", TopicService.getproductName());
 	        model.addAttribute("storeName", TopicService.getstoreName());
@@ -26,7 +28,7 @@ public class ProductController<TopicService>{
 	        model.addAttribute("totalsale", TopicService.gettotalsale());
 	        model.ddAttribute(" weeklyQuantity", TopicService.getweeklyQuantity());
 	        model.addAttribute("message", TopicService.getMessage());     
-	        return "index";
+	        return;
 	    }
 	 @RequestMapping(value="/addProduct/{Quantiy}", method=RequestMethod.GET)
 	    public String addProduct(@PathVariable String Quantiy) {
@@ -48,7 +50,7 @@ public class ProductController<TopicService>{
 	    
 	    @RequestMapping(value="/weeklyQuantity/{id}", method=RequestMethod.GET)
 	    public String weeklyQuantity(@PathVariable("id") int id) {
-	    	topicService.weeklyQuantity(id);
+	    	((ProductController) topicService).weeklyQuantity(id);
 	        return "redirect:/";
 	    }
 	}

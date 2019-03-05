@@ -1,7 +1,8 @@
 package Model;
-
+@Entity
 public class Product {
-private int SKU;
+	@Id
+private int SKU;  //Primary key
 private String productName;
 private String storeName;
 private int Quantity;

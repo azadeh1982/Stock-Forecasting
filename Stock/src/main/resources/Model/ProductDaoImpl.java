@@ -21,15 +21,16 @@ public abstract class ProductDaoImpl implements ProductDao{
 			
 		}
 		public Product getProduct(int SKU) {
-			return Products.stream().filter(t->t.getSKU().equals(SKU)).findFirst().get();
+			return ProductRepo.findOne(SkU);
 			
 		}
 		public void addProduct(Product product) {
 			productRepo.save(product);
 		}
-	public void updateProduct(int SkU, Product product) {
-		for (int i=0; Product.ArrayLenght; i++)
-			return upadte
+	public void updateProduct(int SKU, Product product) {
+		productRepo.save(product);
 	}
-
 	
+	public void deletProduct(int SKU) {
+		productRepo.Delet(SKU);
+	}

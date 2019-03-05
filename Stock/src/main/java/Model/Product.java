@@ -1,13 +1,13 @@
-package io.stockforcastStarterAppTopic;
+package Model;
 
-public class Topic {
+public class Product {
 private int SKU;
 private String productName;
 private String storeName;
 private int Quantity;
 
 
-public Topic(int SKU, String productName, String storeName,int quantity) {
+public Product(int SKU, String productName, String storeName,int quantity) {
 	super();
 	this.SKU = SKU;
 	this.productName = productName;
@@ -39,4 +39,5 @@ private void setQuantity(int quantity) {
 	Quantity = quantity;
 }
 }
+
 
